@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: attendx-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --worker-class eventlet -w 1 app:app
+    envVars:
+      - key: SECRET_KEY
+        value: attendx-super-secret-key-2024-production-minimum-32-chars
+      - key: JWT_SECRET_KEY
+        value: attendx-jwt-secret-key-2024-production-minimum-32-chars
+      - key: PYTHON_VERSION
+        value: 3.11.0
