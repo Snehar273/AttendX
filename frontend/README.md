@@ -35,17 +35,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Login | Faculty Dashboard | Live QR Session |
-|-------|-------------------|-----------------|
-| ![Login](docs/login.png) | ![Dashboard](docs/dashboard.png) | ![QR](docs/session.png) |
-
-| Student View | Analytics | Fraud Logs |
-|-------------|-----------|------------|
-| ![Student](docs/student.png) | ![Analytics](docs/analytics.png) | ![Fraud](docs/fraud.png) |
-
----
 
 ## ✨ Key Features
 
