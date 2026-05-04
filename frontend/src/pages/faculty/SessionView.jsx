@@ -18,7 +18,7 @@ export default function SessionView() {
 
   useEffect(() => {
     initSession(); fetchAttendance()
-    socketRef.current = io('http://127.0.0.1:5000')
+    socketRef.current = io(import.meta.env.VITE_SOCKET_URL || 'http://127.0.0.1:5000')
     socketRef.current.emit('join_session', { session_id: parseInt(id) })
     socketRef.current.on('qr_updated', data => {
       if (data.session_id === parseInt(id)) { setQrImage(data.qr_image); setTimeLeft(15); fetchAttendance() }
