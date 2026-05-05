@@ -29,7 +29,7 @@
 
 <br/>
 
-[🚀 Live Demo](#) · [📖 API Docs](#api-reference) · [🐛 Report Bug](../../issues) · [✨ Request Feature](../../issues)
+[🚀 Live Demo](https://attendx-self.vercel.app/) · [📖 API Docs](#api-reference) · [🐛 Report Bug](../../issues) · [✨ Request Feature](../../issues)
 
 </div>
 
