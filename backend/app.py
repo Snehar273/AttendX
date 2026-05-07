@@ -28,7 +28,8 @@ app.config['JWT_JSON_KEY'] = 'access_token'
 # Extensions
 CORS(app, resources={r"/*": {"origins": [
     "http://localhost:5173",
-    "https://attendx.vercel.app",
+    "http://127.0.0.1:5173",
+    "https://attendx-self.vercel.app",
     "https://*.vercel.app"
 ]}}, supports_credentials=True)
 db.init_app(app)
