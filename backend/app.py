@@ -40,7 +40,7 @@ def after_request(response):
 
 db.init_app(app)
 jwt = JWTManager(app)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
 
 # Init socketio reference in sessions
 init_socketio(socketio)
