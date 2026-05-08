@@ -26,12 +26,7 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = False  # No expiry for simplicity
 app.config['JWT_JSON_KEY'] = 'access_token'
 
 # Extensions
-CORS(app, resources={r"/*": {"origins": [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://attendx-self.vercel.app",
-    "https://*.vercel.app"
-]}}, supports_credentials=True)
+CORS(app, supports_credentials=True)
 db.init_app(app)
 jwt = JWTManager(app)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
