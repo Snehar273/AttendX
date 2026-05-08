@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 import threading
 import time
+from flask import Flask, request
 
 from models import db
 from routes.auth import auth_bp
@@ -26,7 +27,17 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = False  # No expiry for simplicity
 app.config['JWT_JSON_KEY'] = 'access_token'
 
 # Extensions
-CORS(app, supports_credentials=True)
+@app.after_request
+def after_request(response):
+    origin = request.headers.get('Origin', '')
+    response.headers['Access-Control-Allow-Origin'] = origin if origin else '*'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, PATCH'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With'
+    if request.method == 'OPTIONS':
+        response.status_code = 200
+    return response
+
 db.init_app(app)
 jwt = JWTManager(app)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
